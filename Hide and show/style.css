@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #333;
+}
+
+.daddy {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.one {
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+}
+
+.two {
+    background-color: aliceblue;
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    transition: all 0.5s;
+}
+
+.showhide {
+    position: absolute;
+    height: 50px;
+    width: 100px;
+    top: 80%;
+    left: 50%;
+    cursor: pointer;
+    transform: translateX(-50%);
+    border-radius: 15px;
+}
+
+.show {
+    top: 20%;
+}
+
+.down{
+    rotate: 180deg;
+}
