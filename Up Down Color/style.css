@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333; 
+    position: relative;
+}
+
+.buttons {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn {
+    height: 40px;
+    width: 80px;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    background-color: burlywood;
+    border: 3px solid white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: font-size 0.3s;
+}
+
+.btn:hover {
+    font-size: 16px;
+}
+
+p {
+    position: absolute;
+    font-size: 36px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
