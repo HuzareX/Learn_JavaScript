@@ -5,44 +5,52 @@ let ulList
 let newTodo
 
 const main = () => {
-prepareDOMElements()
-prepareDOMEvents()
+	prepareDOMElements()
+	prepareDOMEvents()
 }
 
 const prepareDOMElements = () => {
-    todoInput = document.querySelector('.todo-input')
-    errorInfo = document.querySelector('.error-info')
-    addBtn = document.querySelector('.btn-add')
-    ulList = document.querySelector('.todolist ul')
+	todoInput = document.querySelector('.todo-input')
+	errorInfo = document.querySelector('.error-info')
+	addBtn = document.querySelector('.btn-add')
+	ulList = document.querySelector('.todolist ul')
 }
 
 const prepareDOMEvents = () => {
-addBtn.addEventListener('click', addNewTask)
+	addBtn.addEventListener('click', addNewTask, createToolsArea)
 }
-
-
-
-/* 
-1. tworzy nowy element LI
-2. dodaje element do listy
-3. funkcja odpalana na klika przycisk ADD
-4. przechwytuje treśc z inputa i umieszcza go w nowym LI
-5. funkcja nie doda do listy pustego todosa
-*/
-
 
 const addNewTask = () => {
-    if (todoInput.value !== '') {
-        newTodo = document.createElement('li')
-        newTodo.textContent = todoInput.value
-        ulList.append(newTodo)
-        todoInput.value = ''
-        errorInfo.textContent = ''
-    } else {
-        errorInfo.textContent = 'Wpisz treść zadania!'
-    }
+	if (todoInput.value !== '') {
+		newTodo = document.createElement('li')
+		newTodo.textContent = todoInput.value
+		ulList.append(newTodo)
+		todoInput.value = ''
+		errorInfo.textContent = ''
+        createToolsArea()
+	} else {
+		errorInfo.textContent = 'Wpisz treść zadania!'
+	}
 }
 
+const createToolsArea = () => {
+	const toolsPanel = document.createElement('div')
+	toolsPanel.classList.add('tools')
 
+	const completeBtn = document.createElement('button')
+	completeBtn.classList.add('complete')
+	completeBtn.innerHTML = '<i class="fas fa-check"></i>'
+
+	const editBtn = document.createElement('button')
+	editBtn.classList.add('edit')
+	editBtn.textContent = 'EDIT'
+
+	const deleteBtn = document.createElement('button')
+	deleteBtn.classList.add('delete')
+	deleteBtn.innerHTML = '<i class="fas fa-times"></i>'
+
+	toolsPanel.append(completeBtn, editBtn, deleteBtn)
+	newTodo.append(toolsPanel)
+}
 
 document.addEventListener('DOMContentLoaded', main)
