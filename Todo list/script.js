@@ -121,11 +121,6 @@ const enterKeyCheck = e => {
 
 }
 
-const enterKeyCheckTwo = e => {
-	if(e.key === 'Enter') {
-		changeTodoText()
-		console.log('aa');
-	}
-}
+
 
 document.addEventListener('DOMContentLoaded', main)
