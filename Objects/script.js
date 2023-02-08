@@ -140,7 +140,7 @@ console.log('extends&super')
 
 class Animal {
 	constructor(name) {
-		this.name
+		this.name = name
 	}
 
 	sound() {
@@ -148,8 +148,83 @@ class Animal {
 	}
 }
 
-class Cat extends Animal{}
+class Cat extends Animal{
+	constructor(name, age) {
+		super(name)
+		this.age = age
+	}
+}
 
-const cat = new Cat('Mruczek')
+class Dog extends Animal {
+	constructor(name) {
+		super(name)
+	}
+
+	sound() {
+		console.log('hau hau');
+	}
+}
+
+const cat = new Cat('Mruczek', 6)
+const dog2 = new Dog('Reksio')
 cat.sound()
+dog2.sound()
 console.log(cat);
+console.log(dog2);
+
+console.log('OBJECT ASSIGN');
+//OBJECT ASSIGN
+
+const user1 = {
+	name: 'Daniel',
+	age: 23
+}
+
+const user2 = {
+	name: 'Małgorzata',
+	age: 56
+}
+
+const test1 = {
+	test: 'test'
+}
+
+const userInfo = Object.assign({}, user1, user2, test1)
+
+console.log(user1);
+console.log(user2);
+console.log(test1);
+console.log(userInfo);
+userInfo.age = 45
+console.log(userInfo);
+
+console.log('DESTRUKTURYZACJA OBIEKTÓW');
+// DESTRUKTURYZACJA OBIEKTÓW
+
+const person = {
+	name: 'Franek',
+	age: '23',
+	job: 'firefighter',
+	car: {
+		brand: 'Audi',
+		model: 'c6'
+	}
+}
+
+const showInfo = ({job, name, age}) => {
+	
+
+	// const job = person.job
+	// const name = person.name
+	// const age = person.age
+
+	console.log(`${name} is ${age} years old and he working as ${job}.`);
+}
+
+showInfo(person)
+
+const showInfo2 = ({car}) => {
+	console.log(car);
+}
+
+showInfo2(person)
